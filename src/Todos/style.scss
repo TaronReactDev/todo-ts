@@ -1,0 +1,48 @@
+.oneTask{
+    width: 800px;
+    height: 56px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+justify-content: space-between;
+margin: 0 auto;
+margin-bottom: 10px;
+}
+
+.checkboxWithTask{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.todoMainDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar{
+    width: 100%;
+    min-height: 60px;
+    background-color: rosybrown;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    }
+    .navbar >p{
+       
+        font-size: 25px;margin-left: 10px;
+    }
+
+    .icon{
+        display: flex;
+    }
+
+    .filterBy{
+        
+         align-self:flex-end;
+    }
+    
