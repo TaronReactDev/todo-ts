@@ -10,7 +10,7 @@ export default function Task({
   task,
   id,
   onFlag,
-  onDelet,
+  onDelete,
   color,
   edit,
   editOrSaveTask,
@@ -41,7 +41,7 @@ export default function Task({
         <div className="icon">
             <EditIcon  onClick={editOrSaveTask(id)}/>{" "}
             <FlagIcon color={"" + color} onClick={onFlag(id)}/>{" "}
-            <DeleteIcon  onClick={onDelet(id)}/>
+            <DeleteIcon  onClick={onDelete(id)}/>
         </div>
       )}
     </div>

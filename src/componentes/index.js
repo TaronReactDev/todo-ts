@@ -4,6 +4,8 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import FilterBtn from "./FilterBtn";
 import InputTask from "./InputTask";
 import "./style.scss";
+import {useDispatch, useSelector} from "react-redux";
+import {editTask,taskSumbit } from "./redux/actiones/actionesCreaters"
 
 export default function Index() {
   const [value, setValue] = useState("");
@@ -11,6 +13,13 @@ export default function Index() {
   const [filterChange, setFilterChange] = useState("");
   const [important, setImportant] = useState([]);
   const [notImportant, setNotImportant] = useState([]);
+
+
+
+  const tasktaron = useSelector(state => (state.task.task))
+
+  const dispatch = useDispatch()
+
 
   useEffect(() => {
     const importantTask = tasks.filter((elem) => {
@@ -34,11 +43,28 @@ export default function Index() {
   const handleChange = (ev) => {
     setValue(ev.target.value);
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const submit = (ev) => {
 
     ev.preventDefault();
       const task = {
-      id: new Date(),
+      id: Date.now().toString() ,
       task: value,
       color: "",
       edit: false,
@@ -52,7 +78,7 @@ export default function Index() {
     setFilterChange(ev.target.value);
   };
 
-  const onDelet = (id) => () => {
+  const onDelete = (id) => () => {
     const deletArr = tasks.filter((el) => {
       return el.task.id !== id;
     });
@@ -105,7 +131,7 @@ return el;
         <Task
           id={el.task.id}
           task={el.task.task}
-          onDelet={onDelet}
+          onDelete={onDelete}
           onFlag={onFlag}
           color={el.task.color}
           edit={el.task.edit}
@@ -124,7 +150,10 @@ return el;
         <ListAltIcon />
         <p>Add task</p>
       </div>
+      {tasktaron}
+      <button onClick={()=>{dispatch(taskSumbit())} }>sub</button>
 
+      <button onClick={()=>{dispatch(editTask())} }>edit</button>
       <FilterBtn
         filterValueChange={filterValueChange}
         filterChange={filterChange}
